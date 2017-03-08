@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Styles/Styles.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+</head>
+<body >
+    <form id="form1" runat="server">
+        
+    <div id="wrapper">
+        <header> Header Goes  Here</header>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+          test
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    </asp:ContentPlaceHolder>
+        mainContent
+        <nav> Menu Here</nav>
+        <h3>Music Genres </h3>
+         <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="Name"></asp:DropDownList>
+
+
+
+        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:dbLittleConnectionString %>' SelectCommand="SELECT [Id], [Name] FROM [Genre]"></asp:SqlDataSource>
+        
+           
+        <section id="Main">
+        <asp:ContentPlaceHolder id="cpMainContent" runat="server">          
+        </asp:ContentPlaceHolder>
+             
+        </section>
+
+        <aside id="Sidebar">Sidebar Goes Here</aside>
+        <footer> Footer Here</footer>
+        </div>
+  
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+     </asp:ContentPlaceHolder>
+         </form>
+        
+     
+   
+
+</body>
+</html>
